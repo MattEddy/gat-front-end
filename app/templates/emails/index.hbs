@@ -1,0 +1,11 @@
+<h1>Emails</h1>
+<ul class="list-unstyled">
+  {{#each}}
+    Event Name:
+    <li>
+      {{#link-to 'emails.edit' this}}
+        {{name}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
