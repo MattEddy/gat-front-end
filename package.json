@@ -34,5 +34,8 @@
     "glob": "^4.0.5",
     "broccoli-sass": "^0.3.3",
     "ember-cli-coffeescript": "^0.7.0"
+  },
+  "dependencies": {
+    "rails-csrf": "^1.0.1"
   }
 }
