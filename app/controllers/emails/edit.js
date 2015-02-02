@@ -10,27 +10,31 @@ var EmailController = {
     return true;
   },
   actions: {
-    // save: ->
-    //   console.log "handing action"
-    //   model = this.get('content')
-    //   model.save().then () ->
-    //     console.log "waiting"
-    //   ,  ->
-    //     console.log "Errrors!!!!"
-
+    save: function() {
+      console.log("here")
+      if (!this.hasError) {
+        this.get('content').save().then(function() {
+          console.log("success");
+        } ,function() {
+          console.log("failure");
+        });
+      }
+    },
     validateJson: function() {
-
+      if (this.parseJson(this.get('model.example_data_string'))) {
+        this.set('hasError', false);
+        this.set('errorMessages.jsonError', "");
+      }
+      else {
+        this.set('hasError', true);
+        this.set('errorMessages.jsonError', "You have entered invalid JSON, please reformat your JSON.");
+      }
     }
   },
-  errors: function() {
-    console.log("here");
-    if (this.parseJson(this.get('model.example_data'))) {
-      return;
-    }
-    else {
-      return "has-errors";
-    }
-  }.property('model.example_data')
+  hasError: false,
+  errorMessages: {
+    jsonError: ""
+  }
 };
 
 export default Ember.ObjectController.extend(EmailController);
