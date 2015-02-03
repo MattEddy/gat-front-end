@@ -1,0 +1,15 @@
+<h1>Edit Email</h1>
+<ul>
+  <li>
+    {{#link-to 'emails.edit.data' this}}
+      Edit Data
+    {{/link-to}}
+  </li>
+  <li>
+    {{#link-to 'emails.edit.markup' this}}
+      Edit Markup
+    {{/link-to}}
+  </li>
+  {{outlet data}}
+  {{outlet markup}}
+</ul>

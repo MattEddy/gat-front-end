@@ -5,6 +5,10 @@ Router = Ember.Router.extend(location: config.locationType);
 
 Router.map ->
   @resource 'emails', ->
-    @route 'edit', { path: '/:email_id' }
+    @resource 'emails.edit', ->
+      @route 'index', { path: '/:email_id' }
+      @route 'data', { path: '/data/:email_id' }
+      @route 'markup', { path: '/markup/:email_id' }
+
 
 `export default Router;`

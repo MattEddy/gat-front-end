@@ -1,6 +1,6 @@
 import Ember from "ember";
 
-var EmailController = {
+var DataController = {
   parseJson: function(arg) {
     try {
       JSON.parse(arg);
@@ -11,11 +11,10 @@ var EmailController = {
   },
   actions: {
     save: function() {
-      console.log("here")
       if (!this.hasError) {
         this.get('content').save().then(function() {
           console.log("success");
-        } ,function() {
+        },function() {
           console.log("failure");
         });
       }
@@ -37,4 +36,4 @@ var EmailController = {
   }
 };
 
-export default Ember.ObjectController.extend(EmailController);
+export default Ember.ObjectController.extend(DataController);
