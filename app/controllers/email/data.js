@@ -5,7 +5,7 @@ var DataController = {
     try {
       JSON.parse(arg);
     } catch(e){
-      return false; //error in the above string(in this case,yes)!
+      return false;
     }
     return true;
   },

@@ -1,0 +1,29 @@
+<h2>Edit Email Markup</h2>
+
+<div class="row">
+  <div class='col-md-6'>
+    <div class="edit-email">
+      <div class="form-group">
+        <div>
+          <label class="control-label">Example Data</label>
+          {{textarea
+            value=markup
+            action="update"
+            bubbles=false
+            onEvent="key-press"
+            class="form-control"
+          }}
+        </div>
+      </div>
+      {{#if hasError}}
+        <div class="alert alert-danger" role="alert">{{errorMessages.jsonError}}</div>
+      {{/if}}
+
+      <button class="btn btn-default" {{action 'save'}}>Save</button>
+    </div>
+  </div>
+
+  <div class='col-md-6'>
+    {{markup-preview markup=markup example_data=example_data}}
+  </div>
+</div>

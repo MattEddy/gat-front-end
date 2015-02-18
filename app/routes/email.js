@@ -4,8 +4,5 @@ export default Ember.Route.extend({
   beforeModel: function() {
     console.log(this.csrf.fetchToken());
     return this.csrf.fetchToken();
-  },
-  model: function() {
-    return this.store.find('email');
   }
 });

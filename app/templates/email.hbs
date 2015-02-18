@@ -1,0 +1,15 @@
+<ul class="nav nav-pills">
+  <li role="presentation">
+    {{#link-to 'email.markup' this}}
+      Edit Markup
+    {{/link-to}}
+  </li>
+  <li role="presentation">
+    {{#link-to 'email.data' this}}
+      Edit Data
+    {{/link-to}}
+  </li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul>
+
+{{outlet}}
