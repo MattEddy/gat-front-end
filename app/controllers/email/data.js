@@ -1,14 +1,7 @@
 import Ember from "ember";
+import EmberValidations from 'ember-validations';
 
 var DataController = {
-  parseJson: function(arg) {
-    try {
-      JSON.parse(arg);
-    } catch(e){
-      return false;
-    }
-    return true;
-  },
   actions: {
     save: function() {
       if (!this.hasError) {
@@ -20,20 +13,15 @@ var DataController = {
       }
     },
     validateJson: function() {
-      if (this.parseJson(this.get('model.example_data_string'))) {
-        this.set('hasError', false);
-        this.set('errorMessages.jsonError', "");
-      }
-      else {
-        this.set('hasError', true);
-        this.set('errorMessages.jsonError', "You have entered invalid JSON, please reformat your JSON.");
-      }
+      console.log(this.get('isValid'))
+      console.log(this.get('errors'))
     }
   },
-  hasError: false,
-  errorMessages: {
-    jsonError: ""
+  validations: {
+    example_data: {
+      json: { message: "not valid"}
+    }
   }
 };
 
-export default Ember.ObjectController.extend(DataController);
+export default Ember.ObjectController.extend(EmberValidations.Mixin, DataController);
