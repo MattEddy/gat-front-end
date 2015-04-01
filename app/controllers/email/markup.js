@@ -8,4 +8,4 @@ var MarkupController = {
   }
 };
 
-export default Ember.ObjectController.extend(MarkupController);
+export default Ember.Controller.extend(MarkupController);

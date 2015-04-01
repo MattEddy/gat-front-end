@@ -4,24 +4,17 @@ import EmberValidations from 'ember-validations';
 var DataController = {
   actions: {
     save: function() {
-      if (!this.hasError) {
-        this.get('content').save().then(function() {
-          console.log("success");
-        },function() {
-          console.log("failure");
-        });
-      }
-    },
-    validateJson: function() {
-      console.log(this.get('isValid'))
-      console.log(this.get('errors'))
+      this.validate()
     }
   },
+  jsonString: function() {
+    return JSON.stringify(this.model.get('example_data'));
+  }.property('model.example_data'),
   validations: {
-    example_data: {
-      json: { message: "not valid"}
+    jsonString: {
+      json: { message: "invalid json"}
     }
   }
 };
 
-export default Ember.ObjectController.extend(EmberValidations.Mixin, DataController);
+export default Ember.Controller.extend(EmberValidations.Mixin, DataController);
